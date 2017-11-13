@@ -7,6 +7,11 @@ import java.util.function.Supplier;
 
 public class Timing {
 
+    public static <T> T timed(String description, Supplier<T> supplier) {
+        Consumer<String> consumer = System.out::println;
+        return timed(description, supplier, consumer);
+    }
+
     public static <T> T timed(String description, Supplier<T> supplier, Consumer<String> consumer){
 
         LocalTime startTime = LocalTime.now();
